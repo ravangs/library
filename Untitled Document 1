@@ -1,0 +1,103 @@
+Create a Spring Boot based web application for modeling following entities:
+
+Book
+-id autoincrement
+-name
+-author
+-category
+-releaseYear
+
+Chapter
+-id autoincrement
+-index
+-name
+-numPages
+-bookId (this is FK, won't become a field in class)
+
+The relationship between Book and Chapter is 1-N, use fetch=EAGER and Cascade=Persist
+For automatic creation of tables, add the following additional property in 
+
+application.properties file:
+
+spring.jpa.hibernate.ddl-auto=update
+
+
+Part 1:
+Create a RestFul service that allows addidion,listing,removal and updation of Books
+(use api/ prefix for all restful endpoints)
+
+DO PART 2 only after Part1
+
+Part 2: 
+Create a HTML/JSP based views to support addition,listing and removal of books
+To use JSPs in your Spring boot app, add the following bean definition method to the 
+
+main class, ie, the class annotated with @SpringBootApplication:
+
+    @Bean
+    public ViewResolver viewResolver() {
+        InternalResourceViewResolver viewResolver = new 
+
+InternalResourceViewResolver();
+        viewResolver.setViewClass(JstlView.class);
+        viewResolver.setPrefix("/");
+        viewResolver.setSuffix(".jsp");
+        return viewResolver;
+    }
+
+and add the following dependencies to the pom.xml:
+
+    <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            @Bean
+    public ViewResolver viewResolver() {
+        InternalResourceViewResolver viewResolver = new 
+
+InternalResourceViewResolver();
+        viewResolver.setViewClass(JstlView.class);
+        viewResolver.setPrefix("/");
+        viewResolver.setSuffix(".jsp");
+        return viewResolver;
+    }
+
+and add the following dependencies to the pom.xml:
+
+    <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            @Bean
+    public ViewResolver viewResolver() {
+        InternalResourceViewResolver viewResolver = new 
+
+InternalResourceViewResolver();
+        viewResolver.setViewClass(JstlView.class);
+        viewResolver.setPrefix("/");
+        viewResolver.setSuffix(".jsp");
+        return viewResolver;
+    }
+
+and add the following dependencies to the pom.xml:
+
+    <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+
+The JSPs should be created under the folder,src/main/resources/META-INF/resources 
+
+(Create the folders as needed)
+
+
