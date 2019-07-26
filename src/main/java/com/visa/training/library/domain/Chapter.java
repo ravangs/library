@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "chapter")
 public class Chapter {
@@ -21,6 +23,7 @@ public class Chapter {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "book_id", nullable= false)
+	@JsonIgnore(value = true)
 	private Book book;
 	
 	@Column(name="chapter_index")
@@ -40,6 +43,7 @@ public class Chapter {
 		this.id = id;
 	}
 
+	
 	public Book getBook() {
 		return book;
 	}
@@ -78,9 +82,8 @@ public class Chapter {
 				+ numPages + "]";
 	}
 
-	public Chapter(Book book, int index, String name, int numPages) {
+	public Chapter(int index, String name, int numPages) {
 		super();
-		this.book = book;
 		this.index = index;
 		this.name = name;
 		this.numPages = numPages;

@@ -23,16 +23,6 @@ public class Book {
 	
 	@OneToMany(mappedBy = "book",cascade = CascadeType.ALL,orphanRemoval = true)
 	private List<Chapter> chapters = new ArrayList<Chapter>();
-	
-	
-	
-	public List<Chapter> getChapters() {
-		return chapters;
-	}
-
-	public void setChapters(List<Chapter> chapters) {
-		this.chapters = chapters;
-	}
 
 	@Column(name = "book_name")
 	private String name;
@@ -45,6 +35,8 @@ public class Book {
 	
 	@Column(name = "book_releaseYear")
 	private int year;
+	
+	
 
 	public Book() {
 		
@@ -56,6 +48,16 @@ public class Book {
 		this.author = author;
 		this.category = category;
 		this.year = year;
+	}
+	
+
+	
+	public List<Chapter> getChapters() {
+		return chapters;
+	}
+
+	public void setChapters(List<Chapter> chapters) {
+		this.chapters = chapters;
 	}
 
 	public int getId() {

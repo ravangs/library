@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.visa.training.library.dal.BookRepository;
 import com.visa.training.library.domain.Book;
+import com.visa.training.library.domain.Chapter;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -22,6 +23,10 @@ public class BookServiceImpl implements BookService {
 	public int addNewBook(Book b) {
 		int id = 0;
 		try {
+			List<Chapter> chapters = b.getChapters();
+			for(Chapter c: chapters) {
+				c.setBook(b);
+			}
 			Book created = dao.save(b);
 			id = created.getId();
 			return id;

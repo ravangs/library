@@ -1,6 +1,7 @@
 package com.visa.training.library.web;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.visa.training.library.domain.Book;
+import com.visa.training.library.domain.Chapter;
 import com.visa.training.library.service.BookService;
 
 @RestController
